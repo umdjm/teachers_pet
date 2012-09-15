@@ -42,7 +42,7 @@ group :test do
   gem "capybara"
   gem "rspec-rails", ">= 2.0.1"
   gem "database_cleaner", "~> 0.8.0"
-  gem "capybara-webkit", "~> 0.12.1"
+# gem "capybara-webkit", "~> 0.12.1"
 end
 
 gem "haml", ">= 3.0.0"

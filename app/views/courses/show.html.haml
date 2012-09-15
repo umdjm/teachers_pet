@@ -1,0 +1,16 @@
+= @course.name
+
+= form_for @student do |f|
+  = f.label :name
+  = f.text_field :name
+
+  = f.label :email
+  = f.text_field :email
+  
+
+  = f.submit
+
+
+- @course.students.each do |student|
+  %p= student.first_name
+

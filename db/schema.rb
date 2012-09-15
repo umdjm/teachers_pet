@@ -20,8 +20,7 @@ ActiveRecord::Schema.define(:version => 20120915152113) do
   end
 
   create_table "students", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.integer  "course_id"
     t.datetime "created_at", :null => false

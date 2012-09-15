@@ -37,9 +37,13 @@ end
 # To use debugger
 # gem 'debugger'
 
-gem "cucumber-rails", :group => [:development, :test]
-gem "capybara", :group => [:development, :test]
+group :test do
+  gem "cucumber-rails"
+  gem "capybara"
+  gem "rspec-rails", ">= 2.0.1"
+  gem "database_cleaner", "~> 0.8.0"
+end
+
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]

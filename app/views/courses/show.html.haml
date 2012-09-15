@@ -7,10 +7,11 @@
   = f.label :email
   = f.text_field :email
   
+  = hidden_field(:student, :course_id, :value => @course.id)
 
   = f.submit
 
 
 - @course.students.each do |student|
-  %p= student.first_name
+  %p= student.name
 

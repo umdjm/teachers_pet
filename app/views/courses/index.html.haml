@@ -1,2 +1,2 @@
 -@courses.each do |course|
-  %p= course.name
+  %p= link_to course.name, course_url(course)

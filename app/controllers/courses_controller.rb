@@ -31,4 +31,7 @@ class CoursesController < ApplicationController
     @course.update_attributes(params[:course])
     render :show
   end
+
+  def landing
+  end
 end

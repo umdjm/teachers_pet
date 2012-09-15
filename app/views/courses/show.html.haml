@@ -1,17 +1,27 @@
-= @course.name
+%h1= @course.name
 
-= form_for @student do |f|
-  = f.label :name
-  = f.text_field :name
-
-  = f.label :email
-  = f.text_field :email
+.form-inline
+  = form_for @student do |f|
+    = f.label :name
+    = f.text_field :name
   
-  = hidden_field(:student, :course_id, :value => @course.id)
+    = f.label :email
+    = f.text_field :email
+    
+    = hidden_field(:student, :course_id, :value => @course.id)
+  
+    = f.submit
 
-  = f.submit
+.row
+  .span3
+    %h3 Ungraded
+    %table.table
+      - @course.students.each do |student|
+        %tr
+          %td
+            = student.name
 
-
-- @course.students.each do |student|
-  %p= student.name
-
+  .span9
+    %h3 Graded
+    %p
+      The other table goes over here.

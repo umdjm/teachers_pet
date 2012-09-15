@@ -11,8 +11,9 @@ describe StudentsController do
 
   describe "GET 'create'" do
     it "returns http success" do
-      get 'create'
-      response.should be_success
+      course = Course.create!
+      post 'create', :student => {:name => "Scott Radcliff", :course_id => course.id}
+      response.should redirect_to(course_url(course))
     end
   end
 

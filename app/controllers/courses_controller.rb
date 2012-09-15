@@ -32,6 +32,4 @@ class CoursesController < ApplicationController
     render :show
   end
 
-  def landing
-  end
 end

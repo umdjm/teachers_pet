@@ -3,5 +3,5 @@ TeachersPet::Application.routes.draw do
 
   resources :courses
   resources :students
-  root :to => "courses#landing"
+  root :to => "home#index"
 end

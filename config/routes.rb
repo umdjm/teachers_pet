@@ -1,3 +1,4 @@
 TeachersPet::Application.routes.draw do
-  resources :classes, :only => [:new, :create]
+  resources :courses
+  resources :students
 end

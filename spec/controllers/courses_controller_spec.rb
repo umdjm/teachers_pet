@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe CoursesController do
 
+  describe "GET 'new'" do
+    it "redirects to the assignments edit" do
+      get 'new'
+      course = Course.last
+      assignment = Assignment.where({:course_id => course.id}).last
+      response.should redirect_to(edit_course_assignment_url(course, assignment))
+    end
+  end
+
   describe "GET 'show'" do
     it "returns http success" do
       @course = Course.create!
@@ -34,7 +43,7 @@ describe CoursesController do
     end
   end
 
-  describe "#edit" do 
+  describe "#edit" do
     it  "edits a course" do
       @course = Course.create!(:name => "Math")
       get :edit, :id => @course

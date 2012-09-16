@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   def new
-    @course = Course.new
+    assignment = Assignment.default
+    redirect_to edit_course_assignment_path assignment.course_id, assignment.id
   end
 
   def create

@@ -15,6 +15,9 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @grade = Grade.new
+    @grade.student = Student.new
+    @grade.assignment = Assignment.new({ :course_id => @course.id })
     @student = Student.new
   end
 

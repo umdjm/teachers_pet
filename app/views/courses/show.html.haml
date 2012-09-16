@@ -16,6 +16,21 @@
         = hidden_field(:student, :course_id, :value => @course.id)
       
         = f.submit :class => 'btn'
+
+    .form-inline
+      = form_for @grade do |f|
+        = f.fields_for @grade.student do |sf|
+          = sf.label :name
+          = sf.text_field :name, :id => "studentName2"
+        
+        = f.label :score
+        = f.text_field :score
+        
+        = f.fields_for @grade.assignment do |af|
+          = af.hidden_field :course_id, :value => @course.id
+      
+        = f.submit :class => 'btn'
+
 .main
   .container
     .row

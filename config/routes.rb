@@ -3,6 +3,7 @@ TeachersPet::Application.routes.draw do
 
   resources :courses
   resources :students
+  resources :grades
 
   root :to => "home#index"
 end

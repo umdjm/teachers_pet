@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
 
   def create
     if params[:course][:id].present?
-      #TODO: Update the course
+      update
     else
       @course = Course.new params[:course]
       @course.save

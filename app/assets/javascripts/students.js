@@ -3,7 +3,7 @@ var availableTags = [];
 $(document).ready(function() {
 
     $.each( $("#UngradedTable tr td"), function(i, td){
-        availableTags.push($(td).html().trim());
+        availableTags.push({label: $(td).find('span').html().trim(), value: $(td).find('input').val()});
       });
 });
 
@@ -11,18 +11,18 @@ $(function() {
     $( "#studentName" ).autocomplete({
         autoFocus: true,
         delay: 0,
-        source: availableTags
+        source: availableTags,
+        select: function(event, ui) {
+          $('#studentId').val(ui.item.value);
+          $(event.target).val(ui.item.label);
+          return false;
+        }
     });
 });
 
 $(function() {
     $("#score").keyup(function(event){
-        if(event.keyCode >= 48 && event.keyCode)
-        {
-            $('#score').focus();
-            $('#score').val() = 12;
-        }
-        else if(event.keyCode == 13){
+        if(event.keyCode == 13){
             var $studentName = $('#studentName').val();
             var $score = $('#score').val();
             var $old = $('#UngradedTable tr').find(':contains("'+ $studentName +'")').parent();

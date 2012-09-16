@@ -4,7 +4,6 @@
   .container
     %h1= @course.name
 
-  
     .form-inline
       = form_for @student do |f|
         = f.label :name
@@ -17,22 +16,6 @@
       
         = f.submit :class => 'btn'
 
-    .form-inline
-      = form_for @grade do |f|
-        = f.fields_for @grade.student do |sf|
-          = sf.hidden_field :id
-          = sf.label :name
-          = sf.text_field :name
-        
-        = f.label :score
-        = f.text_field :score
-        
-        = f.fields_for @grade.assignment do |af|
-          = af.hidden_field :id
-          = af.hidden_field :course_id
-      
-        = f.submit :class => 'btn'
-
 .main
   .container
     .row
@@ -42,8 +25,8 @@
           - @course.students.each do |student|
             %tr
               %td
-                = student.name
-    
+                %span= student.name
+                %input{:type => 'hidden', :value => student.id }
 
       .span9
         %h3 Graded

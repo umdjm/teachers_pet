@@ -10,12 +10,12 @@
           = sf.text_field :name, :id => 'studentName'
         
         = f.label :score
-        = f.text_field :score
+        = f.text_field :score, :id => 'score'
         
         = f.fields_for @grade.assignment do |af|
           = af.hidden_field :id
       
-        = f.submit :class => 'btn'
+        /= f.submit :class => 'btn'
 
 .main
   .container
@@ -23,6 +23,8 @@
       .span3
         %h3 Ungraded
         %table.table.table-bordered#UngradedTable
+          %tr
+            %th Students
           - @assignment.course.students.each do |student|
             %tr
               %td
@@ -31,5 +33,7 @@
 
       .span9
         %h3 Graded
-        %p
-          The other table goes over here.
+        %table.table.table-bordered#GradedTable
+          %tr
+            %th Students
+            %th Score

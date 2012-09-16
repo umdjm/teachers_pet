@@ -1,27 +1,35 @@
-%h1= @course.name
 
-.form-inline
-  = form_for @student do |f|
-    = f.label :name
-    = f.text_field :name, :id => "studentName"
+
+.page-header
+  .container
+    %h1= @course.name
+
   
-    = f.label :email
-    = f.text_field :email
+    .form-inline
+      = form_for @student do |f|
+        = f.label :name
+        = f.text_field :name, :id => "studentName"
+      
+        = f.label :email
+        = f.text_field :email
+        
+        = hidden_field(:student, :course_id, :value => @course.id)
+      
+        = f.submit :class => 'btn'
+.main
+  .container
+    .row
+      .span3
+        %h3 Ungraded
+        %table.table.table-bordered#UngradedTable
+          - @course.students.each do |student|
+            %tr
+              %td
+                = student.name
     
-    = hidden_field(:student, :course_id, :value => @course.id)
-  
-    = f.submit
 
-.row
-  .span3
-    %h3 Ungraded
-    %table.table.table-bordered#UngradedTable
-      - @course.students.each do |student|
-        %tr
-          %td
-            = student.name
+      .span9
+        %h3 Graded
+        %p
+          The other table goes over here.
 
-  .span9
-    %h3 Graded
-    %p
-      The other table goes over here.

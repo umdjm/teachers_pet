@@ -84,13 +84,43 @@ header.global {
 		background-repeat: no-repeat;
 		background-position: 0 0;
 		@include hide-text;
+		padding:0;
+		margin-right: 30px;
 	}
 	
 	.navbar {
+		margin-bottom: 0;
 		.navbar-inner {
 			background: transparent;
 			border: none;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+			margin-bottom: 0;
+			padding: 15px 0;
+			
+			li > a {
+				color: white(.7);
+				text-shadow:none;
+				&:hover {
+					color: #fff;
+				}
+			}
+			li.active > a {
+				background: transparent;
+				
+			}
 		}
+	}
+}
+
+.page-header {
+	background-color: $blue;
+	color: white;
+	margin: 0 0 20px 0;
+	h1 {
+		font-weight: normal;
+		margin: 20px 0;
 	}
 }
 

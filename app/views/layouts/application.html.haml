@@ -1,0 +1,31 @@
+!!!
+/[if lte IE 7] <html class="ie7">
+/[if IE 8] <html class="ie8">
+/[if IE 9] <html class="ie9">
+/ [if !IE]><!
+%html
+  / <![endif]
+%html
+  %head
+    %title SimplyGrading&trade;
+    %script{:src => "//use.typekit.net/wxi0key.js", :type => "text/javascript"}
+      :javascript
+        try{Typekit.load();}catch(e){}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{class: ( (@body_class.nil?) ? '' : "#{@body_class}" ) + ' ' + params[:controller] + ' ' + yield(:body_class)}
+    %header.global
+      .container
+        .navbar
+          .navbar-inner
+            %a.brand{:href => "#"} SimplyGrading
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#"} Link
+              %li
+                %a{:href => "#"} Link
+    .container
+      = yield

@@ -3,7 +3,7 @@
 .form-inline
   = form_for @student do |f|
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, :id => "studentName"
   
     = f.label :email
     = f.text_field :email
@@ -15,7 +15,7 @@
 .row
   .span3
     %h3 Ungraded
-    %table.table.table-bordered
+    %table.table.table-bordered#UngradedTable
       - @course.students.each do |student|
         %tr
           %td

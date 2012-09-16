@@ -3,7 +3,7 @@ var availableTags = [];
 $(document).ready(function() {
 
     $.each( $("#UngradedTable tr td"), function(i, td){
-        availableTags.push($(td).html());
+        availableTags.push($(td).html().trim());
       });
 });
 

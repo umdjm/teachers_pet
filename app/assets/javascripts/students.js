@@ -1,16 +1,10 @@
-var availableTags;
+var availableTags = [];
 
 $(document).ready(function() {
-    availableTags = [
-        "Michelle Obama",
-        "Mike Anderson",
-        "Bob Sacramento",
-        "Justin Verlander",
-        "Miguel Cabrera",
-        "Max Scherzer",
-        "Jim Leyland"
-    ];
 
+    $.each( $("#UngradedTable tr td"), function(i, td){
+        availableTags.push($(td).html());
+      });
 });
 
 $(function() {

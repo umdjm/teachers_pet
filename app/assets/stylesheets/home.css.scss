@@ -1,3 +1,17 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body.marketing {
+  background-image: image-url('home_back.png');
+}
+
+button {
+  height: 120px;
+  width: 120px;
+  border-radius: 100%;
+  margin-left: 43%;
+  border: 1px solid #000;
+  background-color: red;
+  border-style: none;
+  color:white;
+
+  position: relative;
+  top: -20px;
+}

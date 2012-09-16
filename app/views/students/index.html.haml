@@ -1,6 +1,7 @@
-%table
-  %tr
-    %th Name
-  ~@student.each do |student|
+.container
+  %table
     %tr
-      %td= student.name
+      %th Name
+    ~@student.each do |student|
+      %tr
+        %td= student.name

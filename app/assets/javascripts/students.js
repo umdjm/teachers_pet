@@ -3,7 +3,7 @@ var availableTags = [];
 $(document).ready(function() {
     $('#tryit').click(function(){
         document.location.href='http://localhost:3000/courses/1/assignments/1/edit';
-    })
+    });
 
     $.each($("#UngradedTable tr td"), function(i, td) {
         availableTags.push({label: $(td).find('span').html().trim(), value: $(td).find('input').val()});
@@ -68,4 +68,3 @@ $(function() {
         }
     });
 });
-

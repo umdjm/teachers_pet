@@ -16,3 +16,4 @@
     = csrf_meta_tags
   %body{class: ( (@body_class.nil?) ? '' : "#{@body_class}" ) + ' ' + params[:controller] + ' ' + yield(:body_class)}
   = yield
+

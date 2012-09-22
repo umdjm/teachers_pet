@@ -124,3 +124,19 @@ header.global {
 	}
 }
 
+
+.UngradedStudent{
+  background-color: $blue;
+  color: $white;
+}
+
+th{
+  background-color: $litegray;
+}
+
+select{
+  background-color: $blue;
+  border-bottom-width:1px;
+  width:150px;
+  color:$white;
+}

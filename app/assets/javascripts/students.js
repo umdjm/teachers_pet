@@ -1,6 +1,10 @@
 var availableTags = [];
 
 $(document).ready(function() {
+    $('#tryit').click(function(){
+        document.location.href='http://localhost:3000/courses/1/assignments/1/edit';
+    })
+
     $.each($("#UngradedTable tr td"), function(i, td) {
         availableTags.push({label: $(td).find('span').html().trim(), value: $(td).find('input').val()});
     });
@@ -22,7 +26,7 @@ $(function() {
         if(event.keyCode == 13){
             var $studentName = $('#studentName').val();
             var score = $('#score').val();
-            var $old = $('#UngradedTable tr').find(':contains("'+ $studentName +'")').parent();
+            var $old = $('#UngradedTable tr td').find(':contains("'+ $studentName +'")').parent().parent();
             //First we copy the arrow to the new table cell and get the offset to the document
             var $new = $old.clone().appendTo('#GradedTable');
             var newOffset = $new.offset();
@@ -64,3 +68,4 @@ $(function() {
         }
     });
 });
+

@@ -1,36 +1,26 @@
 class CoursesController < ApplicationController
   def new
-    assignment = Assignment.default
-    redirect_to edit_course_assignment_path assignment.course_id, assignment.id
-  end
+    @course = Course.new
 
-  def create
-    if params[:course][:id].present?
-      update
-    else
-      @course = Course.new params[:course]
-      @course.save
-      render :json => @course
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @course }
     end
   end
 
-  def show
-    @course = Course.find(params[:id])
-    @student = Student.new
-  end
+  # POST /course
+  # POST /course.json
+  def create
+    @course = Course.new(params[:course])
 
-  def index
-    @courses = Course.all
+    respond_to do |format|
+      if @course.save
+        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.json { render json: @course, status: :created, location: @course }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
+      end
+    end
   end
-
-  def edit
-    @course = Course.find(params[:id])
-  end
-
-  def update
-    @course = Course.find(params[:id])
-    @course.update_attributes(params[:course])
-    render :show
-  end
-
 end

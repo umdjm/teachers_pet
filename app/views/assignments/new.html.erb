@@ -1,0 +1,16 @@
+<div id="letsgetstarted">
+    <div id="getstartedtext">Let's Get Started!</div>
+    <br/>
+
+    <%= form_for @assignment do |f| %>
+        <%= f.fields_for @assignment.course do |sf| %>
+            <%= sf.text_field :name, :id=> 'courseName', :value => "Type Your Course Name" %>
+            <br/>
+        <% end %>
+        <%= f.text_field :name, :id => 'assignmentName', :value => "Type Your Assignment Name" %>
+        <br/>
+        <%= f.submit "Start Grading", :id => "StartGradingButton" %>
+        <br/>
+    <% end %>
+
+</div>

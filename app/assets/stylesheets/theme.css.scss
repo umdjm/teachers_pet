@@ -4,6 +4,7 @@ $litegray: #D7D7D7;
 $darkgray: #383839;
 $gray: #909090;
 $green: #45A73B;
+$liteblue: #79B8EE;
 $blue: #4E9FE8;
 $darkblue: #2D6AA9;
 $headerlinkcolor: #fff;
@@ -139,4 +140,75 @@ select{
   border-bottom-width:1px;
   width:150px;
   color:$white;
+}
+
+#letsgetstarted{
+  background-color: $blue;
+  font-family: "proxima-nova";
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -125px;
+  width: 500px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px black;
+}
+
+#getstartedtext{
+  font-family: "proxima-nova";
+  color: $white;
+  font-size: 42px;
+  margin-top: 30px;
+  text-align:center;
+  position:absolute;
+  width: 300px;
+  left: 50%;
+  margin-left: -150px;
+}
+
+#courseName{
+  color: $gray;
+  font-size:11px;
+  margin-top:70px;
+  position:absolute;
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 5px;
+}
+
+#assignmentName{
+  margin-top:90px;
+  font-size:11px;
+  position:absolute;
+  color: $gray;
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 5px;
+}
+
+#StartGradingButton{
+  margin-top:120px;
+  border-width:.1px;
+  border-color: $gray;
+  border-radius: 5px;
+  font-size:18px;
+  background-color: $liteblue;
+  color: black;
+  position:absolute;
+  width: 150px;
+  height: 50px;
+  left: 50%;
+  margin-left: -70px;
+}
+
+#completion{
+  font-size:36px;
+}
+#score{
+  width: 40px;
+  margin-left: 15px;
 }

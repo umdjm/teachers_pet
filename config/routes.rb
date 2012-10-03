@@ -1,12 +1,11 @@
 TeachersPet::Application.routes.draw do
   get "home/index"
 
-  resources :courses do
-    resources :assignments
-  end
+  resources :courses
 
   resources :students
   resources :grades
+  resources :assignments
 
   root :to => "home#index"
 end

@@ -1,0 +1,73 @@
+%header.global
+  .container
+    .navbar
+      .navbar-inner
+        %a.brand{:href => "/"} SimplyGrading&trade;
+        %ul.nav.pull-right
+          %li
+            %a{:href => "#"} Settings
+          %li
+            %a{:href => "#"} Stats
+          %li
+            %a{:href => "#"} Print
+
+.page-header
+  .container
+    .row
+      .span2
+        %h4#CourseName
+          = select_tag "course_select", options_for_select(@course_options), :selected => @assignment.course.id
+      .span2
+        %h4#AssignmentName
+          = select_tag "assignment_select", options_for_select(@assignment_options), :selected => @assignment.id
+
+    .row
+      .span8
+        .form-inline
+          = form_for @grade, :remote => true do |f|
+            = f.fields_for @grade.student do |sf|
+              = sf.hidden_field :id, :id => 'studentId'
+              = sf.text_field :name, :id=> 'studentName', :value => "Type Student Name"
+
+
+            = f.text_field :score, :id=>'score', :value => "XX"
+            = f.label "%"
+
+            = f.fields_for @grade.assignment do |af|
+              = af.hidden_field :id
+              = af.hidden_field :course_id
+      .span4
+        #completion
+          0% Complete
+
+.main
+  .container
+    .row
+      .span3
+        %h3 Ungraded
+        %table.table.table-bordered#UngradedTable
+          %tr
+            %th
+              Students
+          - @assignment.ungraded.each do |student|
+            %tr.UngradedStudent
+              %td
+                %span= student.name
+                %input{:type => 'hidden', :value => student.id }
+
+
+      .span9
+        %h3 Graded
+        %table.table.table-bordered#GradedTable
+          %tr
+            %th
+              Students
+            %th
+              Score
+              - @assignment.graded.each do |grade|
+                %tr.GradedStudent
+                  %td= grade.student.name
+                  %td= grade.score
+
+
+

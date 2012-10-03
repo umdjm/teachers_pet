@@ -5,8 +5,8 @@ function ConfigureTextBoxDefaults()
     var defaults = {};
     defaults['score'] = 'XX';
     defaults['studentName'] = "Type Student Name";
-    defaults['assignmentName'] = "Type Assignment Name";
-    defaults['courseName'] = "Type Course Name";
+    defaults['assignmentName'] = "Type Your Assignment Name";
+    defaults['courseName'] = "Type Your Course Name";
 
     $('input[type=text]').focus(function() {
         var id = $(this).attr("id");
